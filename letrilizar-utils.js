@@ -1,5 +1,9 @@
 
 var LetrilizarUtils = {
+    nl2br: function (str, is_xhtml) {
+        var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';
+        return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
+    },
     getSelectedText: function() { 
         if (window.getSelection) {
             return window.getSelection().toString();
@@ -36,14 +40,20 @@ var LetrilizarSelectionWrapper = {
     el: $('.letrilizar-text-wrapper'),
     initialize: function(containerEl) {
         this.containerEl = containerEl;
+        
+        this.el.on('click', function(e) {
+            ActionBaloon.remove();
+        });
+        
         return this;
     },
     getSelection: function(mouseEvent) {
         var selection = $.trim(LetrilizarUtils.getSelectedText());
+        selection = LetrilizarUtils.nl2br(selection, false);
         if (!selection) return;
         
         return this.wrapSelectionOcurrences(selection)
-            .getClosestWrapper(mouseEvent.pageX, mouseEvent.pageY);
+                .getClosestWrapper(mouseEvent.pageX, mouseEvent.pageY);
     },
     wrapSelectionOcurrences: function(selection) {
         var regEx = new RegExp(selection, 'g');
@@ -61,11 +71,15 @@ var LetrilizarSelectionWrapper = {
         
         return wrapper;
     },
+    destroy: function() {
+        this.destroyElementsOtherThan(null);
+    },
     destroyElementsOtherThan: function(survivorEl) {
         this.el = $(this.el.selector);
         
         this.el.not(survivorEl).each(function(){
-                $(this).replaceWith($(this).html());
+            $(this).replaceWith($(this).html());
         });
     }
 }
+

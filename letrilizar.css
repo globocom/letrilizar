@@ -1,8 +1,11 @@
 
-.letrilizar-text-wrapper { color: #999; }
-.letrilizar-text-wrapper--closest { color: #000; }
+.letrilizar-text-wrapper--closest, 
+.letrilizar-text-wrapper--closest::selection  { 
+    color: #000;
+}
 
-.letrilizar::selection, .letrilizar-text-wrapper--closest {
+.letrilizar::selection, 
+.letrilizar-text-wrapper--closest {
     background: #ed6653;
 }
 
@@ -17,6 +20,7 @@
     text-transform: uppercase;
     padding: 10px 13px;
     font-size: 11px;
+    font-family: 'ProximaNova', 'Montserrat', sans-serif;
 }
 
 

@@ -3,40 +3,46 @@ var Letrilizar = {
     el: $('.letrilizar'),
     initialize: function() {
         var that = this;
+        ActionBaloon.initialize(this.el);
+        
+        this.el.on('keydown', function(e) {
+            that.onUnselect(e);
+        });
+        
         this.el.on('mouseup', function(e) {
             var selection = LetrilizarSelectionWrapper.initialize(that.el)
                                                        .getSelection(e);
             
             if (selection) {
                 that.onSelect(e, selection);
-            } else {
-                that.onUnselect(e);
-            }
+            } 
         });
         
         return this;
     },
     onSelect: function(e, selection) {
-        this.onUnselect();
-        $(this.el).append(ActionBaloon.el);
-        
         var offset = selection.offset();
         offset.top = offset.top - ActionBaloon.el.height() - 20;
+        offset.left = offset.left + (ActionBaloon.el.width() / 2);
         ActionBaloon.floatAt(offset);
     },
     onUnselect: function(e) {
-        //ActionBaloon.removeAll();
+        ActionBaloon.remove();
     }
 };
 
 
 var ActionBaloon = {
-    el: $('.letrilizar-action-ballon'),
-    floatAt: function(offset) {
-        this.el.css(offset);
+    el: $('#letrilizar-template-action-ballon'),
+    initialize: function(parentEl) {
+        parentEl.append(ActionBaloon.el.html());
+        this.el = $('.letrilizar-action-ballon');
     },
-    removeAll: function() {
-        this.el.remove();
+    floatAt: function(offset) {
+        this.el.css(offset).fadeIn();
+    },
+    remove: function() {
+        this.el.fadeOut();
     }
 }
 
