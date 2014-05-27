@@ -1,0 +1,22 @@
+
+.letrilizar-text-wrapper { color: #999; }
+.letrilizar-text-wrapper--closest { color: #000; }
+
+.letrilizar::selection, .letrilizar-text-wrapper--closest {
+    background: #ed6653;
+}
+
+.letrilizar-markupholder {
+    display: none;
+}
+
+.letrilizar-action-ballon { 
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 10px 13px;
+    font-size: 11px;
+}
+
+
