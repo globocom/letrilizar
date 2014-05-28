@@ -35,13 +35,22 @@ var Letrilizar = {
 var ActionBaloon = {
     el: $('#letrilizar-template-action-ballon'),
     initialize: function(parentEl) {
+        var that = this;
         parentEl.parent().append(ActionBaloon.el.html());
         this.el = $('.letrilizar-action-ballon');
+        
+        this.el.find('.letrilizar-share-button').on('click', function() {
+            that.togglePreview();
+        });
     },
     floatAt: function(offset) {
         this.el.css(offset).fadeIn();
     },
+    togglePreview: function(toggle) {
+        this.el.toggleClass('letrilizar--active',toggle);
+    },
     remove: function() {
+        this.togglePreview(false);
         this.el.fadeOut();
     }
 }

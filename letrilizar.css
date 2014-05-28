@@ -3,6 +3,15 @@
     border: 3px dashed #e73e2c;
 }
 
+
+.letrilizar,
+.letrilizar-text-wrapper--closest,
+.letrilizar-preview,
+.letrilizar-share-button {
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+
 .letrilizar-text-wrapper--closest, 
 .letrilizar-text-wrapper--closest::selection  { 
     color: #000;
@@ -27,4 +36,19 @@
     font-family: 'ProximaNova', 'Montserrat', sans-serif;
 }
 
+.letrilizar-preview {
+    display: block;
+    width: 0;
+    height: 0;
+}
+
+
+.letrilizar--active .letrilizar-preview {
+    width: 480px;
+    height: 310px;
+}
+
+.letrilizar--active .letrilizar-share-button {
+    float: right;
+}
 
