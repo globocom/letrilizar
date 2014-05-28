@@ -6,10 +6,6 @@ var Letrilizar = {
         ActionBaloon.initialize(this.el);
         LetrilizarSelectionWrapper.initialize(this.el);
         
-        this.el.on('keydown', function(e) {
-            that.onUnselect(e);
-        });
-        
         this.el.on('mouseup', function(e) {
             var selection = LetrilizarSelectionWrapper.getSelection(e);
             
@@ -28,7 +24,9 @@ var Letrilizar = {
         ActionBaloon.floatAt(offset)
     },
     onUnselect: function(e) {
-        ActionBaloon.remove();
+        ActionBaloon.hide();
+        e.stopPropagation();
+        return false;
     }
 };
 
@@ -66,7 +64,7 @@ var ActionBaloon = {
         canvas.show();
         style.draw(canvas[0], this.text);
     },
-    remove: function() {
+    hide: function() {
         this.togglePreview(false);
         this.el.fadeOut();
     }
