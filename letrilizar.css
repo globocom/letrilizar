@@ -7,7 +7,8 @@
 .letrilizar,
 .letrilizar-text-wrapper--closest,
 .letrilizar-preview,
-.letrilizar-share-button {
+.letrilizar-share-button,
+.letrilizar-preview canvas {
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
 }
@@ -42,6 +43,10 @@
     height: 0;
 }
 
+.letrilizar-preview canvas {
+    display: none;
+    opacity: 0;
+}
 
 .letrilizar--active .letrilizar-preview {
     width: 480px;
@@ -50,5 +55,11 @@
 
 .letrilizar--active .letrilizar-share-button {
     float: right;
+}
+
+
+.letrilizar--active canvas {
+    display: block;
+    opacity: 1;
 }
 

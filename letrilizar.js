@@ -24,7 +24,8 @@ var Letrilizar = {
         var offset = selection.offset();
         offset.top = offset.top - ActionBaloon.el.height() - 20;
         offset.left = offset.left + (ActionBaloon.el.width() / 2);
-        ActionBaloon.floatAt(offset);
+        ActionBaloon.text = selection.text();
+        ActionBaloon.floatAt(offset)
     },
     onUnselect: function(e) {
         ActionBaloon.remove();
@@ -34,6 +35,7 @@ var Letrilizar = {
 
 var ActionBaloon = {
     el: $('#letrilizar-template-action-ballon'),
+    text: null,
     initialize: function(parentEl) {
         var that = this;
         parentEl.parent().append(ActionBaloon.el.html());
@@ -45,9 +47,24 @@ var ActionBaloon = {
     },
     floatAt: function(offset) {
         this.el.css(offset).fadeIn();
+        return this;
     },
     togglePreview: function(toggle) {
         this.el.toggleClass('letrilizar--active',toggle);
+        this.el.find('canvas').toggle(toggle);
+        this.draw();
+    },
+    draw: function() {
+        var canvas = this.el.find('canvas');
+        var context = canvas[0].getContext('2d');
+        context.clearRect (0, 0, canvas[0].width, canvas[0].height);
+        
+        if (!this.text) {return;}
+        var style = LetrilizarStyles[0];
+        
+        canvas.css({'background-color': style.backgroundColor});
+        canvas.show();
+        style.draw(canvas[0], this.text);
     },
     remove: function() {
         this.togglePreview(false);

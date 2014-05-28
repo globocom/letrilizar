@@ -5,11 +5,18 @@ var LetrilizarUtils = {
         return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
     },
     getSelectedText: function() { 
+        var selection;
         if (window.getSelection) {
-            return window.getSelection().toString();
+            selection = window.getSelection().toString();
         }
         if (document.selection) {
-            return document.selection.createRange().text;
+            selection = document.selection.createRange().text;
+        }
+        
+        if (selection) {
+            selection = LetrilizarUtils.nl2br(selection, false);
+            selection = $.trim(selection);
+            return selection;
         }
         return '';
     },
@@ -48,8 +55,7 @@ var LetrilizarSelectionWrapper = {
         return this;
     },
     getSelection: function(mouseEvent) {
-        var selection = $.trim(LetrilizarUtils.getSelectedText());
-        selection = LetrilizarUtils.nl2br(selection, false);
+        selection = LetrilizarUtils.getSelectedText();
         if (!selection) return;
         
         this.wrapSelectionOcurrences(selection);
