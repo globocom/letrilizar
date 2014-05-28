@@ -1,17 +1,17 @@
 
 var Letrilizar = {
     el: $('.letrilizar'),
-    initialize: function() {
+    letrilizar: function() {
         var that = this;
         ActionBaloon.initialize(this.el);
+        LetrilizarSelectionWrapper.initialize(this.el);
         
         this.el.on('keydown', function(e) {
             that.onUnselect(e);
         });
         
         this.el.on('mouseup', function(e) {
-            var selection = LetrilizarSelectionWrapper.initialize(that.el)
-                                                       .getSelection(e);
+            var selection = LetrilizarSelectionWrapper.getSelection(e);
             
             if (selection) {
                 that.onSelect(e, selection);
@@ -35,7 +35,7 @@ var Letrilizar = {
 var ActionBaloon = {
     el: $('#letrilizar-template-action-ballon'),
     initialize: function(parentEl) {
-        parentEl.append(ActionBaloon.el.html());
+        parentEl.parent().append(ActionBaloon.el.html());
         this.el = $('.letrilizar-action-ballon');
     },
     floatAt: function(offset) {
@@ -46,5 +46,4 @@ var ActionBaloon = {
     }
 }
 
-Letrilizar.initialize();
-
+Letrilizar.letrilizar();

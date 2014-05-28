@@ -52,8 +52,8 @@ var LetrilizarSelectionWrapper = {
         selection = LetrilizarUtils.nl2br(selection, false);
         if (!selection) return;
         
-        return this.wrapSelectionOcurrences(selection)
-                .getClosestWrapper(mouseEvent.pageX, mouseEvent.pageY);
+        this.wrapSelectionOcurrences(selection);
+        return this.getClosestWrapper(mouseEvent.pageX, mouseEvent.pageY);
     },
     wrapSelectionOcurrences: function(selection) {
         var regEx = new RegExp(selection, 'g');
@@ -61,8 +61,6 @@ var LetrilizarSelectionWrapper = {
         
         newHtml = newHtml.replace(regEx, '<span class="letrilizar-text-wrapper">' + selection + '</span>');
         $(this.containerEl).html(newHtml);
-        
-        return this;
     },
     getClosestWrapper: function(x, y) {
         var wrapper =  LetrilizarUtils.elementClosestToOffset($(this.el.selector), x, y);
