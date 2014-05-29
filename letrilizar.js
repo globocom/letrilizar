@@ -5,6 +5,7 @@ var Letrilizar = {
         var that = this;
         ActionBaloon.initialize(this.el);
         LetrilizarSelectionWrapper.initialize(this.el);
+        LetrilizarFacebookShare.initialize();
         
         this.el.on('mouseup', function(e) {
             if (ActionBaloon.previewIsOpen()) {
@@ -39,6 +40,10 @@ var ActionBaloon = {
         parentEl.parent().append(ActionBaloon.el.html());
         this.el = $('.letrilizar-action-ballon');
         
+        this.el.find('.letrilizar-download-button').on('click', function() {
+            that.download();
+        });
+        
         this.changeStyle();
         this.el.find('.letrilizar-change-button').on('click', function() {
             that.changeStyle().draw();
@@ -71,9 +76,6 @@ var ActionBaloon = {
         this.style = LetrilizarUtils.randomItemFrom(LetrilizarStyles, this.style);
         return this;
     },
-    share: function() {
-        //not yet!
-    },
     draw: function() {
         var canvas = this.el.find('canvas');
         var context = canvas[0].getContext('2d');
@@ -87,6 +89,13 @@ var ActionBaloon = {
         var subtitle2 = 'MUSICA.COM.BR';
         
         this.style.draw(canvas[0], this.text, subtitle1, subtitle2);
+        this.canvas = canvas;
+    },
+    download: function() {
+        window.open(this.canvas[0].toDataURL('image/png'));
+    },
+    share: function() {
+        LetrilizarFacebookShare.share({canvas: this.canvas[0], message: ''});
     },
     hide: function() {
         this.togglePreview(false);
@@ -94,4 +103,3 @@ var ActionBaloon = {
     }
 }
 
-Letrilizar.letrilizar();

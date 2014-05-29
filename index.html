@@ -110,10 +110,30 @@ Beat it, beat it, beat it<br>
 
 </body>
 
+<script type='text/javascript'>
+
+    // This is the App Id for this example application
+    // Please REPLACE it by your App Id
+    var demoAppId = '512206148841008';
+    var appId = document.location.search.replace('?appid=','').replace('/','');
+    // To get an App Id for your domain, visit https://developers.facebook.com
+
+    window.fbAsyncInit = function() {
+        FB.init({appId: appId || demoAppId, status: true, cookie: true, xfbml: true});
+    };
+</script>
+
 <script type='text/javascript' src='CanvasText-0.4.1.js'></script>
 <script type='text/javascript' src='jquery-1.11.1.js'></script>
-<script type='text/javascript' src='letrilizar-styles.js'></script>
+<script type="text/javascript" src="http://connect.facebook.net/pt_BR/all.js"></script>
 <script type='text/javascript' src='letrilizar-utils.js'></script>
+<script type='text/javascript' src='letrilizar-share.js'></script>
+<script type='text/javascript' src='letrilizar-styles.js'></script>
 <script type='text/javascript' src='letrilizar.js'></script>
+
+<script type='text/javascript'>
+    Letrilizar.letrilizar();
+</script>
+
 
 </html>

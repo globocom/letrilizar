@@ -64,6 +64,14 @@
     opacity: 0;
 }
 
+.letrilizar-share-button:hover,
+.letrilizar-download-button:hover,
+.letrilizar-change-button:hover,
+.letrilizar-close-button:hover {
+    text-shadow: 0 0 6px rgba(255,255,255,0.8);
+}
+
+
 .letrilizar--active .letrilizar-preview {
     width: 480px;
     height: 310px;
