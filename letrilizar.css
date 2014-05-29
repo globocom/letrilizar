@@ -28,6 +28,7 @@
 }
 
 .letrilizar-action-ballon { 
+    display: none;
     position: absolute;
     background-color: #333;
     color: #fff;

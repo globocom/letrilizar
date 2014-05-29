@@ -7,6 +7,10 @@ var Letrilizar = {
         LetrilizarSelectionWrapper.initialize(this.el);
         
         this.el.on('mouseup', function(e) {
+            if (ActionBaloon.previewIsOpen()) {
+                ActionBaloon.hide();
+            }
+            
             var selection = LetrilizarSelectionWrapper.getSelection(e);
             
             if (selection) {
@@ -23,11 +27,6 @@ var Letrilizar = {
         ActionBaloon.text = selection.text();
         ActionBaloon.floatAt(offset)
     },
-    onUnselect: function(e) {
-        ActionBaloon.hide();
-        e.stopPropagation();
-        return false;
-    }
 };
 
 
@@ -49,8 +48,10 @@ var ActionBaloon = {
     },
     togglePreview: function(toggle) {
         this.el.toggleClass('letrilizar--active',toggle);
-        this.el.find('canvas').toggle(toggle);
         this.draw();
+    },
+    previewIsOpen: function() {
+        return this.el.is('.letrilizar--active');
     },
     draw: function() {
         var canvas = this.el.find('canvas');
@@ -61,7 +62,6 @@ var ActionBaloon = {
         var style = LetrilizarStyles[0];
         
         canvas.css({'background-color': style.backgroundColor});
-        canvas.show();
         style.draw(canvas[0], this.text);
     },
     hide: function() {
