@@ -38,6 +38,11 @@
     font-family: 'ProximaNova', 'Montserrat', sans-serif;
 }
 
+.letrilizar-share-button {
+    background-repeat: no-repeat;
+    padding-left: 18px;
+}
+
 .letrilizar-preview {
     display: block;
     width: 0;
@@ -52,12 +57,28 @@
 .letrilizar--active .letrilizar-preview {
     width: 480px;
     height: 310px;
+    margin-bottom: 10px;
 }
 
 .letrilizar--active .letrilizar-share-button {
+    cursor: pointer;
     float: right;
 }
 
+.letrilizar--active .letrilizar-close-button {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    right: -6px;
+    top: -6px;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #333;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
 
 .letrilizar--active canvas {
     display: block;

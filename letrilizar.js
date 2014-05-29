@@ -39,7 +39,15 @@ var ActionBaloon = {
         this.el = $('.letrilizar-action-ballon');
         
         this.el.find('.letrilizar-share-button').on('click', function() {
-            that.togglePreview();
+            if (that.previewIsOpen()) {
+                that.share();
+            } else {
+                that.togglePreview();
+            }
+        });
+        
+        this.el.find('.letrilizar-close-button').on('click', function() {
+            that.togglePreview(false);
         });
     },
     floatAt: function(offset) {
@@ -52,6 +60,9 @@ var ActionBaloon = {
     },
     previewIsOpen: function() {
         return this.el.is('.letrilizar--active');
+    },
+    share: function() {
+        //not yet!
     },
     draw: function() {
         var canvas = this.el.find('canvas');
