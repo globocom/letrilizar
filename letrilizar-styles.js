@@ -23,6 +23,13 @@ var LetrilizarStyles = LetrilizarStyles || [];
         CT.defineClass("text1", text);
         CT.defineClass("text1-light", $.extend({}, text, 
                        {fontColor: "#fff"}));
+
+        CT.defineClass("classic-text", {
+            fontFamily: "Montserrat",
+            fontSize: "28px",
+            fontWeight: "normal",
+            fontColor: "#333"
+        });
         
         var subtitle1 = {
             fontFamily: "Montserrat",
@@ -49,19 +56,29 @@ var LetrilizarStyles = LetrilizarStyles || [];
         return CT;
     };
     
-    var putImage = function(context, src, x, y) {
+    var putImage = function(context, src, x, y, callback) {
         var image = new Image();
         image.src = src;
+        if (!callback) { callback = function() {} };
         image.onload = function(){
             context.drawImage(image, x, y);
+            callback();
         }
+    };
+    
+    var setBackgroundColor = function(canvas, context, color) { 
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        var fillStyle = context.fillStyle;
+        context.fillStyle = color;
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        context.fillStyle = fillStyle ;
     };
     
     LetrilizarStyles.push({
         name: 'quote-1',
-        backgroundColor: '#fff',
         draw: function(canvas, text, subtitle1, subtitle2) {
             var context = canvas.getContext("2d");
+            setBackgroundColor(canvas, context, '#fff');
             var CT = getCT(canvas, context); 
 
             CT.drawText({
@@ -98,9 +115,9 @@ var LetrilizarStyles = LetrilizarStyles || [];
     
     LetrilizarStyles.push({
         name: 'quote-blue',
-        backgroundColor: '#4e85ae',
         draw: function(canvas, text, subtitle1, subtitle2) {
             var context = canvas.getContext("2d");
+            setBackgroundColor(canvas, context, '#4e85ae');
             var CT = getCT(canvas, context); 
             
             CT.drawText({
@@ -124,7 +141,32 @@ var LetrilizarStyles = LetrilizarStyles || [];
                 boxWidth: 480
             });
             
-            putImage(context, 'quote-white.png', 200, 30);
+            putImage(context, 'quote-white.png', 225, 22);
+        }
+    });
+   
+    LetrilizarStyles.push({
+        name: 'classic',
+        draw: function(canvas, text, subtitle1, subtitle2) {
+            var context = canvas.getContext("2d");
+            var CT = getCT(canvas, context);
+            setBackgroundColor(canvas, context, '#fff');
+            putImage(context, 'classic-background.png', 0, 0, function(){
+                CT.drawText({
+                    text: '<class="classic-text">' + text + '</class>',
+                    x: 40,
+                    y: 60,
+                    boxWidth: 480 - 30
+                });
+                
+                CT.drawText({
+                    text: '<class="subtitle2">' + subtitle1 + '</class>',
+                    x: 40,
+                    y: 280,
+                    boxWidth: 480 - 60
+                });
+                
+            });
         }
     });
     

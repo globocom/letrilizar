@@ -77,13 +77,8 @@ var ActionBaloon = {
         return this;
     },
     draw: function() {
-        var canvas = this.el.find('canvas');
-        var context = canvas[0].getContext('2d');
-        context.clearRect(0, 0, canvas[0].width, canvas[0].height);
-        
+        var canvas = this.el.find('canvas');        
         if (!this.text) {return;}
-        
-        canvas.css({'background-color': this.style.backgroundColor});
         
         var subtitle1 = 'Pollo - Vagalumes (part. Ivo Mozart)';
         var subtitle2 = 'MUSICA.COM.BR';
