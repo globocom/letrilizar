@@ -33,10 +33,16 @@ var Letrilizar = {
 var ActionBaloon = {
     el: $('#letrilizar-template-action-ballon'),
     text: null,
+    style: null,
     initialize: function(parentEl) {
         var that = this;
         parentEl.parent().append(ActionBaloon.el.html());
         this.el = $('.letrilizar-action-ballon');
+        
+        this.changeStyle();
+        this.el.find('.letrilizar-change-button').on('click', function() {
+            that.changeStyle().draw();
+        });
         
         this.el.find('.letrilizar-share-button').on('click', function() {
             if (that.previewIsOpen()) {
@@ -61,19 +67,26 @@ var ActionBaloon = {
     previewIsOpen: function() {
         return this.el.is('.letrilizar--active');
     },
+    changeStyle: function() {
+        this.style = LetrilizarUtils.randomItemFrom(LetrilizarStyles, this.style);
+        return this;
+    },
     share: function() {
         //not yet!
     },
     draw: function() {
         var canvas = this.el.find('canvas');
         var context = canvas[0].getContext('2d');
-        context.clearRect (0, 0, canvas[0].width, canvas[0].height);
+        context.clearRect(0, 0, canvas[0].width, canvas[0].height);
         
         if (!this.text) {return;}
-        var style = LetrilizarStyles[0];
         
-        canvas.css({'background-color': style.backgroundColor});
-        style.draw(canvas[0], this.text);
+        canvas.css({'background-color': this.style.backgroundColor});
+        
+        var subtitle1 = 'Pollo - Vagalumes (part. Ivo Mozart)';
+        var subtitle2 = 'MUSICA.COM.BR';
+        
+        this.style.draw(canvas[0], this.text, subtitle1, subtitle2);
     },
     hide: function() {
         this.togglePreview(false);

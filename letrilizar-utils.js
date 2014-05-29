@@ -4,6 +4,16 @@ var LetrilizarUtils = {
         var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';
         return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
     },
+    randomItemFrom: function(items, previous) {
+        var rollDice = function() {
+            return items[Math.floor(Math.random()*items.length)];
+        };
+        
+        var randomItem = rollDice();
+        while (randomItem == previous) { randomItem = rollDice(); };
+        
+        return randomItem;
+    },
     getSelectedText: function() { 
         var selection;
         if (window.getSelection) {
