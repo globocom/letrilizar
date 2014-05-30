@@ -71,6 +71,10 @@
     text-shadow: 0 0 6px rgba(255,255,255,0.8);
 }
 
+.letrilizar-status {
+    display: none;
+    opacity: 0;
+}
 
 .letrilizar--active .letrilizar-preview {
     width: 480px;
@@ -109,3 +113,11 @@
     opacity: 1;
 }
 
+.letrilizar--sharing .letrilizar-buttons {
+    display: none;
+}
+
+.letrilizar--sharing .letrilizar-status {
+    display: block;
+    opacity: 1;
+}

@@ -27,7 +27,7 @@ var Letrilizar = {
         offset.left = offset.left + (ActionBaloon.el.width() / 2);
         ActionBaloon.text = selection.text();
         ActionBaloon.floatAt(offset)
-    },
+    }
 };
 
 
@@ -76,6 +76,10 @@ var ActionBaloon = {
         this.style = LetrilizarUtils.randomItemFrom(LetrilizarStyles, this.style);
         return this;
     },
+    changeStatus: function(text) {
+        this.el.addClass('letrilizar--sharing');
+        this.el.find('.letrilizar-status').html(text);
+    },
     draw: function() {
         var canvas = this.el.find('canvas');        
         if (!this.text) {return;}
@@ -90,7 +94,19 @@ var ActionBaloon = {
         window.open(this.canvas[0].toDataURL('image/png'));
     },
     share: function() {
-        LetrilizarFacebookShare.share({canvas: this.canvas[0], message: ''});
+        var that = this;
+        this.changeStatus('Estamos postamos a foto no seu facebook...');
+        
+        LetrilizarFacebookShare.share({
+            canvas: this.canvas[0], 
+            message: '',
+            successCallback: function() {
+                that.changeStatus('Sua foto foi postada. É só curtir!');
+            },
+            errorCallback: function() {
+                that.changeStatus('Ops... ocorreu um erro');
+            }
+        });
     },
     hide: function() {
         this.togglePreview(false);
