@@ -1,7 +1,18 @@
 
 var Letrilizar = {
     el: $('.letrilizar'),
-    letrilizar: function() {
+    defaultOptions: {
+        'sharingText': 'Estamos postamos a foto no seu facebook...',
+        'successText': 'Sua foto foi postada. É só curtir!',
+        'errorText': 'Ops... ocorreu um erro',
+        'subtitle1': 'Letrilizar',
+        'subtitle2': 'GLOBOCOM.GITHUB.IO/LETRILIZAR/'
+    },
+    letrilizar: function(options) {
+        this.options = $.extend({}, this.defaultOptions, options);
+        this.initialize();
+    },
+    initialize: function() {
         var that = this;
         ActionBaloon.initialize(this.el);
         LetrilizarSelectionWrapper.initialize(this.el);
@@ -84,8 +95,8 @@ var ActionBaloon = {
         var canvas = this.el.find('canvas');        
         if (!this.text) {return;}
         
-        var subtitle1 = 'Pollo - Vagalumes (part. Ivo Mozart)';
-        var subtitle2 = 'MUSICA.COM.BR';
+        var subtitle1 = Letrilizar.options['subtitle1'];
+        var subtitle2 = Letrilizar.options['subtitle2'];
         
         this.style.draw(canvas[0], this.text, subtitle1, subtitle2);
         this.canvas = canvas;
@@ -95,16 +106,16 @@ var ActionBaloon = {
     },
     share: function() {
         var that = this;
-        this.changeStatus('Estamos postamos a foto no seu facebook...');
+        this.changeStatus(Letrilizar.options['sharingText']);
         
         LetrilizarFacebookShare.share({
             canvas: this.canvas[0], 
             message: '',
             successCallback: function() {
-                that.changeStatus('Sua foto foi postada. É só curtir!');
+                that.changeStatus(Letrilizar.options['successText']);
             },
             errorCallback: function() {
-                that.changeStatus('Ops... ocorreu um erro');
+                that.changeStatus(Letrilizar.options['errorText']);
             }
         });
     },
