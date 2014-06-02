@@ -24,7 +24,7 @@ var LetrilizarUtils = {
         }
         
         if (selection) {
-            selection = LetrilizarUtils.nl2br(selection, false);
+            selection = LetrilizarUtils.nl2br(selection, true);
             selection = $.trim(selection);
             return selection;
         }

@@ -73,7 +73,7 @@ var ActionBaloon = {
         });
     },
     floatAt: function(offset) {
-        this.el.css(offset).fadeIn();
+        this.el.css(offset).css('display','block').addClass('animated bounceInUp');
         return this;
     },
     togglePreview: function(toggle) {
