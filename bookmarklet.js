@@ -25,7 +25,7 @@
         html += '</div>';    
         html += '</script>'; 
         
-        $('.letrilizar').append(html);       
+        $('#glb-doc').append(html);       
     
     script=document.createElement('script');
     script.type='text/javascript';
