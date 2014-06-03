@@ -2,31 +2,31 @@
     styles.rel='stylesheet';
     styles.type='text/css';
     styles.media = 'screen';
-    styles.href='https://raw.githubusercontent.com/globocom/letrilizar/master/animate.min.css';
+    styles.href='http://globocom.github.io/letrilizar/animate.min.css';
     document.getElementsByTagName('head')[0].appendChild(styles);
     
     styles=document.createElement('link');
     styles.rel='stylesheet';
     styles.type='text/css';
     styles.media = 'screen';
-    styles.href='https://raw.githubusercontent.com/globocom/letrilizar/master/letrilizar.css';
+    styles.href='http://globocom.github.io/letrilizar/letrilizar.css';
     document.getElementsByTagName('head')[0].appendChild(styles);
     
     styles=document.createElement('link');
     styles.rel='stylesheet';
     styles.type='text/css';
     styles.media = 'screen';
-    styles.href='https://raw.githubusercontent.com/globocom/letrilizar/master/letrilizar-icons.css';
+    styles.href='http://globocom.github.io/letrilizar/letrilizar-icons.css';
     document.getElementsByTagName('head')[0].appendChild(styles);
 
     var script=document.createElement('script');
     script.type='text/javascript';
-    script.src='https://raw.githubusercontent.com/globocom/letrilizar/master/CanvasText-0.4.1.js';
+    script.src='http://globocom.github.io/letrilizar/CanvasText-0.4.1.js';
     document.getElementsByTagName('head')[0].appendChild(script);
     
     script=document.createElement('body');
     script.type='text/javascript';
-    script.src='https://raw.githubusercontent.com/globocom/letrilizar/master/jquery-1.11.1.js';
+    script.src='http://globocom.github.io/letrilizar/jquery-1.11.1.js';
     document.getElementsByTagName('body')[0].appendChild(script);
     
     var html = '<div class="letrilizar-markupholder">';
@@ -48,22 +48,22 @@
         
     script=document.createElement('script');
     script.type='text/javascript';
-    script.src='https://raw.githubusercontent.com/globocom/letrilizar/master/letrilizar-utils.js';
+    script.src='http://globocom.github.io/letrilizar/letrilizar-utils.js';
     document.getElementsByTagName('body')[0].appendChild(script);
     
     script=document.createElement('script');
     script.type='text/javascript';
-    script.src='https://raw.githubusercontent.com/globocom/letrilizar/master/letrilizar-share.js';
+    script.src='http://globocom.github.io/letrilizar/letrilizar-share.js';
     document.getElementsByTagName('body')[0].appendChild(script);
     
     script=document.createElement('script');
     script.type='text/javascript';
-    script.src='https://raw.githubusercontent.com/globocom/letrilizar/master/letrilizar-styles.js';
+    script.src='http://globocom.github.io/letrilizar/letrilizar-styles.js';
     document.getElementsByTagName('body')[0].appendChild(script);
     
     script=document.createElement('script');
     script.type='text/javascript';
-    script.src='https://raw.githubusercontent.com/globocom/letrilizar/master/letrilizar.js';
+    script.src='http://globocom.github.io/letrilizar/letrilizar.js';
     document.getElementsByTagName('body')[0].appendChild(script);
     
     $('body').append('<div class="letrilizar">Letrilizado</div>');
