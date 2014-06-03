@@ -92,7 +92,7 @@ var ActionBaloon = {
         this.el.find('.letrilizar-status').html(text);
     },
     draw: function() {
-        var canvas = this.el.find('canvas');        
+        var canvas = this.el.find('canvas');
         if (!this.text) {return;}
         
         var subtitle1 = Letrilizar.options['subtitle1'];

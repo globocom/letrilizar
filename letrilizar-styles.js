@@ -25,14 +25,14 @@ var LetrilizarStyles = LetrilizarStyles || [];
                        {fontColor: "#fff"}));
 
         CT.defineClass("classic-text", {
-            fontFamily: "Montserrat",
+            fontFamily: "Georgia",
             fontSize: "28px",
             fontWeight: "normal",
             fontColor: "#333"
         });
         
         var subtitle1 = {
-            fontFamily: "Montserrat",
+            fontFamily: "Georgia",
             fontSize: "13px",
             fontWeight: "light",
             fontColor: "#999"
@@ -43,7 +43,7 @@ var LetrilizarStyles = LetrilizarStyles || [];
                        {fontColor: "#fff"}));
         
         var subtitle2 = {
-            fontFamily: "Montserrat",
+            fontFamily: "Georgia",
             fontSize: "13px",
             fontWeight: "bold",
             fontColor: "#666"   
@@ -150,6 +150,7 @@ var LetrilizarStyles = LetrilizarStyles || [];
         draw: function(canvas, text, subtitle1, subtitle2) {
             var context = canvas.getContext("2d");
             var CT = getCT(canvas, context);
+            
             setBackgroundColor(canvas, context, '#fff');
             putImage(context, 'classic-background.png', 0, 0, function(){
                 CT.drawText({

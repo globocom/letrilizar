@@ -24,7 +24,7 @@ var LetrilizarUtils = {
         }
         
         if (selection) {
-            selection = LetrilizarUtils.nl2br(selection, true);
+            selection = LetrilizarUtils.nl2br(selection, false);
             selection = $.trim(selection);
             return selection;
         }
@@ -49,6 +49,43 @@ var LetrilizarUtils = {
         });
         
         return closestEl;
+    },
+    getTextHeight: function(ct) {
+        var width = 450;
+        var height = 300;
+        var data = ct.getImageData(0,0,width,height).data,
+        first = false, 
+        last = false,
+        r = height,
+        c = 0;
+        // Find the last line with a non-white pixel
+        while(!last && r) {
+            r--;
+            for(c = 0; c < width; c++) {
+                if(data[r * width * 4 + c * 4 + 3]) {
+                    last = r;
+                    break;
+                }
+            }
+        }
+    
+        // Find the first line with a non-white pixel
+        while(r) {
+            r--;
+            for(c = 0; c < width; c++) {
+                if(data[r * width * 4 + c * 4 + 3]) {
+                    first = r;
+                    break;
+                }
+            }
+            var height = 0;
+            // If we've got it then return the height
+            if(first != r){
+              height =  last - first;  
+            }
+        }
+        return height;
+     
     }
 };
 
