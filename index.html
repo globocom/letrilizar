@@ -2,43 +2,53 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<link rel="stylesheet" href="bootstrap.min.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="animate.min.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="letrilizar.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="letrilizar-icons.css" type="text/css" media="screen" />
 </head>
 <body>
 <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-<section class="letrilizar" id="materia-letra">
-Beat it, beat it, beat it, beat it<br />
-No one wants to be defeated<br />
-Showin' how funky and <button>Ui element</button>strong is your fight<br />
-It doesn't matter who's wrong or who's right<br />
-<br />
-Just beat it, beat it, beat it, beat it<br />
-No one wants to be defeated<br />
-Showin' how funky and strong is your fight<br />
-It doesn't matter who's wrong or right<br />
-<br />
-Just beat it, beat it, beat it, beat it<br />
-No one wants to be defeated<br />
-Showin' how funky and strong is your fight<br />
-It doesn't matter who's wrong or right<br />
-Just beat it, beat it<br />
-Beat it, beat it, beat it<br />
-<br />
-Beat it, beat it, beat it, beat it<br />
-No one wants to be defeated<br />
-Showin' how funky <button>Ui element</button>and strong is your fight<br />
-It doesn't matter who's wrong or who's right<br />
-<br />
-Just beat it, beat it, beat it, beat it<br />
-No one wants to be defeated<br />
-Showin' how funky and strong is your fight<br />
-It doesn't matter who's wrong or right<br />
-<br />
-Just beat it, beat it, beat it, beat it<br />
-No one wants to be defeated<br />
-Showin' how funky and strong is your fight<br />
+<div class="container">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="jumbotron">
+          <h1>Letrilizar</h1>
+          <p>Transforme qualquer trecho da sua página em uma citação e compartilhe</p>
+          <p class="text-primary">Selecione os trechos abaixo e veja em ação!</p>
+        </div>
+    </div>
+</div>
+<div class="row letrilizar">
+  <div class="col-lg-4">
+    <div class="bs-component">
+      <blockquote id="letrilizar-phrase">
+        <p>We need to steer clear of this poverty of ambition, where people want to drive fancy cars and wear nice clothes and live in nice apartments but don't want to work hard to accomplish these things. Everyone should try to realize their full potential.</p>
+        <small>Phrase from <cite title="Source Title">Barack Obana</cite></small>
+      </blockquote>
+    <div class="btn btn-primary btn-xs" id="source-button" style="display: none;">&lt; &gt;</div></div>
+  </div>
+  <div class="col-lg-4">
+    <div class="bs-component">
+      <blockquote class="pull-right" id="letrilizar-music">
+        <p>Imagine there's no heaven<br />
+It's easy if you try<br />
+No hell below us<br />
+Above us only sky<br />
+Imagine all the people <br />
+Living for today</p>
+        <small>Music from <cite title="Source Title">John Lennon</cite></small>
+      </blockquote>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="bs-component">
+      <blockquote class="pull-right" id="letrilizar-book">
+        <p>Eu poderia viver recluso numa casca de noz e me considerar rei do espaço infinito...</p>
+        <small>Trecho de <cite title="Source Title">Shakespare</cite></small>
+      </blockquote>
+    </div>
+  </div>
 <div class='letrilizar-markupholder'>
     <script type='text/template' id='letrilizar-template-action-ballon'>
         <div class='letrilizar-action-ballon'>
@@ -55,7 +65,8 @@ Showin' how funky and strong is your fight<br />
         </div>
     </script>
 </div>
-</section>
+</div>
+</div>
 </body>
 
 <script type='text/javascript'>
@@ -69,6 +80,7 @@ Showin' how funky and strong is your fight<br />
     window.fbAsyncInit = function() {
         FB.init({appId: appId || demoAppId, status: true, cookie: true, xfbml: true});
     };
+    
 </script>
 
 <script type='text/javascript' src='CanvasText-0.4.1.js'></script>
@@ -78,5 +90,9 @@ Showin' how funky and strong is your fight<br />
 <script type='text/javascript' src='letrilizar-share.js'></script>
 <script type='text/javascript' src='letrilizar-styles.js'></script>
 <script type='text/javascript' src='letrilizar.js'></script>
-
+<script type='text/javascript'>
+     $(function(){
+       Letrilizar.letrilizar(); 
+    });
+</script>
 </html>

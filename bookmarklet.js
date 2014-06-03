@@ -25,7 +25,7 @@
         html += '</div>';    
         html += '</script>'; 
         
-        $('#materia-letra').append(html);       
+        $('.letrilizar').append(html);       
     
     script=document.createElement('script');
     script.type='text/javascript';
