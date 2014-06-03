@@ -25,7 +25,7 @@
         html += '</div>';    
         html += '</script>'; 
         
-        $('#glb-doc').append(html);       
+        $('#materia-letra').append(html);       
     
     script=document.createElement('script');
     script.type='text/javascript';
