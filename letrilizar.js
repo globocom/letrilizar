@@ -165,7 +165,7 @@ var LetrilizarSelectionWrapper = {
 
 
 var Letrilizar = {
-    el: $('#glb-doc'),
+    el: $('#materia-letra'),
     defaultOptions: {
         'sharingText': 'Estamos postando a foto no seu facebook...',
         'successText': 'Sua foto foi postada. É só curtir!',
