@@ -3,16 +3,10 @@
     script.src='https://raw.githubusercontent.com/globocom/letrilizar/master/CanvasText-0.4.1.js';
     document.getElementsByTagName('head')[0].appendChild(script);
     
-    script=document.createElement('script');
+    script=document.createElement('body');
     script.type='text/javascript';
     script.src='https://raw.githubusercontent.com/globocom/letrilizar/master/jquery-1.11.1.js';
-    document.getElementsByTagName('head')[0].appendChild(script);
-    
-    var div = document.createElement('div');
-    div.className = 'letrilizar';
-    
-    document.getElementsByTagName('body')[0].appendChild(div);
-    
+    document.getElementsByTagName('body')[0].appendChild(script);
     
     var html = '<div class="letrilizar-markupholder">';
         html += '<script type="text/template" id="letrilizar-template-action-ballon">';
@@ -31,27 +25,27 @@
         html += '</div>';    
         html += '</script>'; 
         
-        $('body').append(html);       
+        $('.letrilizar').append(html);       
     
     script=document.createElement('script');
     script.type='text/javascript';
     script.src='https://raw.githubusercontent.com/globocom/letrilizar/master/letrilizar-utils.js';
-    document.getElementsByTagName('head')[0].appendChild(script);
+    document.getElementsByTagName('body')[0].appendChild(script);
     
     script=document.createElement('script');
     script.type='text/javascript';
     script.src='https://raw.githubusercontent.com/globocom/letrilizar/master/letrilizar-share.js';
-    document.getElementsByTagName('head')[0].appendChild(script);
+    document.getElementsByTagName('body')[0].appendChild(script);
     
     script=document.createElement('script');
     script.type='text/javascript';
     script.src='https://raw.githubusercontent.com/globocom/letrilizar/master/letrilizar-styles.js';
-    document.getElementsByTagName('head')[0].appendChild(script);
+    document.getElementsByTagName('body')[0].appendChild(script);
     
     script=document.createElement('script');
     script.type='text/javascript';
     script.src='https://raw.githubusercontent.com/globocom/letrilizar/master/letrilizar.js';
-    document.getElementsByTagName('head')[0].appendChild(script);
+    document.getElementsByTagName('body')[0].appendChild(script);
     
     script=document.createElement('link');
     script.rel='stylesheet';

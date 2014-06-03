@@ -1,6 +1,6 @@
 
 var Letrilizar = {
-    el: $('.letrilizar'),
+    el: $('#glb-doc'),
     defaultOptions: {
         'sharingText': 'Estamos postando a foto no seu facebook...',
         'successText': 'Sua foto foi postada. É só curtir!',
