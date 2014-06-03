@@ -92,7 +92,7 @@ var LetrilizarUtils = {
     	CT.defineClass("smaller",$.extend({}, CT.getClass(style), 
                        {fontSize: "16px"}));
                        
-        if(canvasTextHeight > 200) {
+        if(canvasTextHeight > 210) {
         	definedClass = 'smaller';
         	CT.config({
         		lineHeight: "24px",

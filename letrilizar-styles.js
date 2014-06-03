@@ -164,7 +164,7 @@ var LetrilizarStyles = LetrilizarStyles || [];
             var CT = getCT(canvas, context);
             
             CT.context.clearRect(0, 0, canvas.width, canvas.height);
-            var definedClass = LetrilizarUtils.fitText(CT, canvas, text, 10, 100, 450, 'classic-text');
+            var definedClass = LetrilizarUtils.fitText(CT, canvas, text, 10, 100, 480, 'classic-text');
             CT.context.clearRect(0, 0, canvas.width, canvas.height);
             
             setBackgroundColor(canvas, context, '#fff');
@@ -174,7 +174,7 @@ var LetrilizarStyles = LetrilizarStyles || [];
                     text: '<class="' + definedClass + '">' + text + '</class>',
                     x: 40,
                     y: 60,
-                    boxWidth: 480 - 30
+                    boxWidth: 480 - 50
                 });
                 
                 CT.drawText({
