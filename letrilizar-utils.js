@@ -11,8 +11,8 @@ var LetrilizarUtils = {
         
         var randomItem = rollDice();
         while (randomItem == previous) { randomItem = rollDice(); };
-        
-        return randomItem;
+        return items[0];
+        //return randomItem;
     },
     getSelectedText: function() { 
         var selection;
@@ -86,6 +86,29 @@ var LetrilizarUtils = {
         }
         return height;
      
+    },
+    autoFontSize: function(CT, canvasTextHeight) {
+    	var definedClass = 'text1';
+        if(canvasTextHeight > 180) {
+        	definedClass = 'smaller';
+        	CT.config({
+        		lineHeight: "24px",
+        	});
+        }
+        return definedClass;
+    },
+    fitText: function(CT, canvas, text, x, y, boxWidth) {
+    	CT.drawText({
+            text: '<class="text1">' + text + '</class>',
+            x: x,
+            y: y,
+            boxWidth: boxWidth
+        });
+        
+        var canvasTextHeight = LetrilizarUtils.getTextHeight(CT.context);
+        
+        var definedClass = LetrilizarUtils.autoFontSize(CT, canvasTextHeight);
+        return definedClass;
     }
 };
 

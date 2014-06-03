@@ -31,12 +31,17 @@ var LetrilizarStyles = LetrilizarStyles || [];
             fontColor: "#333"
         });
         
+        var smallerClass = {
+            fontSize: "16px",
+        };
+        
         var subtitle1 = {
             fontFamily: "Georgia",
             fontSize: "13px",
             fontWeight: "light",
             fontColor: "#999"
         };
+        
         
         CT.defineClass("subtitle1", subtitle1);
         CT.defineClass("subtitle1-light", $.extend({}, subtitle1, 
@@ -52,6 +57,8 @@ var LetrilizarStyles = LetrilizarStyles || [];
         CT.defineClass("subtitle2",subtitle2);
         CT.defineClass("subtitle2-light", $.extend({}, subtitle2, 
                        {fontColor: "#fff"}));
+                       
+   		CT.defineClass("smaller",smallerClass);
         
         return CT;
     };
@@ -78,9 +85,13 @@ var LetrilizarStyles = LetrilizarStyles || [];
         name: 'quote-1',
         draw: function(canvas, text, subtitle1, subtitle2) {
             var context = canvas.getContext("2d");
-            setBackgroundColor(canvas, context, '#fff');
             var CT = getCT(canvas, context); 
 
+            var definedClass = LetrilizarUtils.fitText(CT, canvas, text, 10, 100, 480);
+            CT.context.clearRect(0, 0, canvas.width, canvas.height);
+            
+            setBackgroundColor(canvas, context, '#fff');
+            
             CT.drawText({
                 text: '<class="quote1">“</class>',
                 x: 215,
@@ -88,7 +99,7 @@ var LetrilizarStyles = LetrilizarStyles || [];
             });
             
             CT.drawText({
-                text: '<class="text1">' + text + '</class>',
+                text: '<class="' + definedClass + '">' + text + '</class>',
                 x: 10,
                 y: 100,
                 boxWidth: 480 - 10
