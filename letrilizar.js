@@ -2,7 +2,7 @@
 var Letrilizar = {
     el: $('.letrilizar'),
     defaultOptions: {
-        'sharingText': 'Estamos postamos a foto no seu facebook...',
+        'sharingText': 'Estamos postando a foto no seu facebook...',
         'successText': 'Sua foto foi postada. É só curtir!',
         'errorText': 'Ops... ocorreu um erro',
         'subtitle1': 'Letrilizar',
