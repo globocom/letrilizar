@@ -125,3 +125,6 @@ var ActionBaloon = {
     }
 }
 
+$(function(){
+    Letrilizar.letrilizar();
+});
