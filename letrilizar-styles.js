@@ -31,10 +31,6 @@ var LetrilizarStyles = LetrilizarStyles || [];
             fontColor: "#333"
         });
         
-        var smallerClass = {
-            fontSize: "16px",
-        };
-        
         var subtitle1 = {
             fontFamily: "Georgia",
             fontSize: "13px",
@@ -58,8 +54,6 @@ var LetrilizarStyles = LetrilizarStyles || [];
         CT.defineClass("subtitle2-light", $.extend({}, subtitle2, 
                        {fontColor: "#fff"}));
                        
-   		CT.defineClass("smaller",smallerClass);
-        
         return CT;
     };
     
@@ -87,7 +81,8 @@ var LetrilizarStyles = LetrilizarStyles || [];
             var context = canvas.getContext("2d");
             var CT = getCT(canvas, context); 
 
-            var definedClass = LetrilizarUtils.fitText(CT, canvas, text, 10, 100, 480);
+            CT.context.clearRect(0, 0, canvas.width, canvas.height);
+            var definedClass = LetrilizarUtils.fitText(CT, canvas, text, 10, 100, 480, 'text1');
             CT.context.clearRect(0, 0, canvas.width, canvas.height);
             
             setBackgroundColor(canvas, context, '#fff');
@@ -128,11 +123,17 @@ var LetrilizarStyles = LetrilizarStyles || [];
         name: 'quote-blue',
         draw: function(canvas, text, subtitle1, subtitle2) {
             var context = canvas.getContext("2d");
-            setBackgroundColor(canvas, context, '#4e85ae');
             var CT = getCT(canvas, context); 
             
+            CT.context.clearRect(0, 0, canvas.width, canvas.height);
+            var definedClass = LetrilizarUtils.fitText(CT, canvas, text, 10, 100, 470, 'text1-light');
+            CT.context.clearRect(0, 0, canvas.width, canvas.height);
+            
+            setBackgroundColor(canvas, context, '#4e85ae');
+            
+            
             CT.drawText({
-                text: '<class="text1-light">' + text + '</class>',
+                text: '<class="' + definedClass + '">' + text + '</class>',
                 x: 10,
                 y: 100,
                 boxWidth: 480 - 10
@@ -162,10 +163,15 @@ var LetrilizarStyles = LetrilizarStyles || [];
             var context = canvas.getContext("2d");
             var CT = getCT(canvas, context);
             
+            CT.context.clearRect(0, 0, canvas.width, canvas.height);
+            var definedClass = LetrilizarUtils.fitText(CT, canvas, text, 10, 100, 450, 'classic-text');
+            CT.context.clearRect(0, 0, canvas.width, canvas.height);
+            
             setBackgroundColor(canvas, context, '#fff');
+            
             putImage(context, 'classic-background.png', 0, 0, function(){
                 CT.drawText({
-                    text: '<class="classic-text">' + text + '</class>',
+                    text: '<class="' + definedClass + '">' + text + '</class>',
                     x: 40,
                     y: 60,
                     boxWidth: 480 - 30
