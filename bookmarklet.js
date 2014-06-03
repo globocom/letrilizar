@@ -1,24 +1,3 @@
-    var styles=document.createElement('link');
-    styles.rel='stylesheet';
-    styles.type='text/css';
-    styles.media = 'screen';
-    styles.href='http://globocom.github.io/letrilizar/animate.min.css';
-    document.getElementsByTagName('head')[0].appendChild(styles);
-    
-    styles=document.createElement('link');
-    styles.rel='stylesheet';
-    styles.type='text/css';
-    styles.media = 'screen';
-    styles.href='http://globocom.github.io/letrilizar/letrilizar.css';
-    document.getElementsByTagName('head')[0].appendChild(styles);
-    
-    styles=document.createElement('link');
-    styles.rel='stylesheet';
-    styles.type='text/css';
-    styles.media = 'screen';
-    styles.href='http://globocom.github.io/letrilizar/letrilizar-icons.css';
-    document.getElementsByTagName('head')[0].appendChild(styles);
-
     var script=document.createElement('script');
     script.type='text/javascript';
     script.src='http://globocom.github.io/letrilizar/CanvasText-0.4.1.js';
@@ -36,7 +15,6 @@
         html += '<div class="letrilizar-preview">';
         html += '<canvas width="480" height="310"></canvas>';    
         html += '</div>';
-        html += '</div>';        
         html += '<div class="letrilizar-buttons">';
         html += '<span class="letrilizar-download-button">download</span>';    
         html += '<span class="letrilizar-change-button">trocar visual</span>';    
@@ -45,6 +23,7 @@
         html += '<div class="letrilizar-status"></div>';        
         html += '</div>';    
         html += '</script>'; 
+        html += '</div>';
         
     script=document.createElement('script');
     script.type='text/javascript';
@@ -66,6 +45,29 @@
     script.src='http://globocom.github.io/letrilizar/letrilizar.js';
     document.getElementsByTagName('body')[0].appendChild(script);
     
-    $('body').append('<div class="letrilizar">Letrilizado</div>');
+    var styles=document.createElement('link');
+    styles.rel='stylesheet';
+    styles.type='text/css';
+    styles.media = 'screen';
+    styles.href='http://globocom.github.io/letrilizar/animate.min.css';
+    document.getElementsByTagName('head')[0].appendChild(styles);
+    
+    styles=document.createElement('link');
+    styles.rel='stylesheet';
+    styles.type='text/css';
+    styles.media = 'screen';
+    styles.href='http://globocom.github.io/letrilizar/letrilizar.css';
+    document.getElementsByTagName('head')[0].appendChild(styles);
+    
+    styles=document.createElement('link');
+    styles.rel='stylesheet';
+    styles.type='text/css';
+    styles.media = 'screen';
+    styles.href='http://globocom.github.io/letrilizar/letrilizar-icons.css';
+    document.getElementsByTagName('head')[0].appendChild(styles);
+    
+    
+    $('#materia-letra').addClass('letrilizar');
     $('.letrilizar').append(html);
+    Letrilizar.letrilizar();
     
