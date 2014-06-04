@@ -1,6 +1,6 @@
 var Letrilizar = {
-    el: $('.letrilizar'),
     defaultOptions: {
+        el: $('.letrilizar'),
         sharingText: 'Estamos postando a foto no seu facebook...',
         successText: 'Sua foto foi postada. É só curtir!',
         errorText: 'Ops... ocorreu um erro',
@@ -10,6 +10,7 @@ var Letrilizar = {
     },
     letrilizar: function(options) {
         this.options = $.extend({}, this.defaultOptions, options);
+        this.el = this.options.el;
         this.initialize();
     },
     initialize: function() {
