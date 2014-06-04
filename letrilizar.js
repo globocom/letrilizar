@@ -1,11 +1,12 @@
 var Letrilizar = {
     el: $('.letrilizar'),
     defaultOptions: {
-        'sharingText': 'Estamos postando a foto no seu facebook...',
-        'successText': 'Sua foto foi postada. É só curtir!',
-        'errorText': 'Ops... ocorreu um erro',
-        'subtitle1': 'Letrilizar',
-        'subtitle2': 'GLOBOCOM.GITHUB.IO/LETRILIZAR/'
+        sharingText: 'Estamos postando a foto no seu facebook...',
+        successText: 'Sua foto foi postada. É só curtir!',
+        errorText: 'Ops... ocorreu um erro',
+        subtitle1: 'Letrilizar',
+        subtitle2: 'GLOBOCOM.GITHUB.IO/LETRILIZAR/',
+        imageSrcPrefix: 'images/'
     },
     letrilizar: function(options) {
         this.options = $.extend({}, this.defaultOptions, options);

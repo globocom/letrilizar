@@ -59,7 +59,7 @@ var LetrilizarStyles = LetrilizarStyles || [];
     
     var putImage = function(context, src, x, y, callback) {
         var image = new Image();
-        image.src = src;
+        image.src = Letrilizar.options.imageSrcPrefix + src;
         if (!callback) { callback = function() {} };
         image.onload = function(){
             context.drawImage(image, x, y);
