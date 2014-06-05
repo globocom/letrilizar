@@ -11,6 +11,7 @@ var Letrilizar = {
     letrilizar: function(options) {
         this.options = $.extend({}, this.defaultOptions, options);
         this.el = this.options.el;
+        this.el.addClass('letrilizar-letrilization-area');
         this.initialize();
     },
     initialize: function() {
@@ -24,9 +25,8 @@ var Letrilizar = {
                 ActionBaloon.hide();
             }
             
-            var selection = LetrilizarSelectionWrapper.getSelection(e);
-            
-            if (selection) {
+            var selection = LetrilizarSelectionWrapper.getSelection();
+            if (selection.text) {
                 that.onSelect(e, selection);
             } 
         });
@@ -34,10 +34,20 @@ var Letrilizar = {
         return this;
     },
     onSelect: function(e, selection) {
-        var offset = selection.offset();
-        offset.top = offset.top - ActionBaloon.el.height() - 20;
-        offset.left = offset.left + (ActionBaloon.el.width() / 2);
-        ActionBaloon.text = selection.text();
+        var offset = {};
+        var parentOffset = this.el.offset();
+        var scrollTop = $(window).scrollTop();
+        var scrollLeft = $(window).scrollLeft();
+        
+        offset.top = selection.top - parentOffset.top + 45;
+        offset.left = selection.left - parentOffset.left + (selection.width /2);
+        
+        // selection position is relative to screen, so
+        // is needed to add scroll displacement
+        offset.top += scrollTop;
+        offset.left += scrollLeft;
+        
+        ActionBaloon.text = selection.text;
         ActionBaloon.floatAt(offset)
     }
 };

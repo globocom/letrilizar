@@ -1,119 +1,127 @@
-
 .letrilizar,
 .letrilizar-text-wrapper--closest,
 .letrilizar-preview,
 .letrilizar-share-button,
 .letrilizar-preview canvas {
-    transition: all 0.5s;
-    -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
 }
 
-.letrilizar-text-wrapper--closest, 
-.letrilizar-text-wrapper--closest::selection  { 
-    color: #000;
-}
-
-.letrilizar::selection, 
-.letrilizar-text-wrapper--closest {
-    background: #ed6653;
+.letrilizar-letrilization-area::selection {
+  background: #ed6653;
 }
 
 .letrilizar-markupholder {
-    display: none;
+  display: none;
 }
 
-.letrilizar-action-ballon { 
-    display: none;
-    position: absolute;
-    background-color: #333;
-    box-shadow: 0 0 3px rgba(50,50,50,0.8);
-    color: #fff;
-    text-transform: uppercase;
-    padding: 10px 13px;
-    font-size: 11px;
-    font-family: 'ProximaNova', 'Montserrat', sans-serif;
-    z-index: 5000;
+.letrilizar-action-ballon {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  box-shadow: 0 0 3px rgba(50, 50, 50, 0.8);
+  color: #fff;
+  text-transform: uppercase;
+  padding: 10px 13px;
+  font-size: 11px;
+  font-family: 'ProximaNova', 'Montserrat', sans-serif;
+  z-index: 5000;
+}
+
+.letrilizar-action-ballon::after {
+  content: '';
+  display: inline-block;
+  box-shadow: 0 0 3px rgba(50, 50, 50, 0.8);
+  width: 12px;
+  height: 12px;
+  background-color: #333;
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  margin-left: -3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
 }
 
 .letrilizar-download-button,
 .letrilizar-change-button {
-    display: none;
+  display: none;
 }
 
 .letrilizar-share-button,
 .letrilizar-download-button,
 .letrilizar-change-button {
-    cursor: pointer;
-    background-repeat: no-repeat;
-    padding-left: 18px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  padding-left: 18px;
 }
 
 .letrilizar-preview {
-    display: block;
-    width: 0;
-    height: 0;
-    overflow: hidden;
+  display: block;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 
 .letrilizar-preview canvas {
-    display: none;
-    opacity: 0;
+  display: none;
+  opacity: 0;
 }
 
 .letrilizar-share-button:hover,
 .letrilizar-download-button:hover,
 .letrilizar-change-button:hover,
 .letrilizar-close-button:hover {
-    text-shadow: 0 0 6px rgba(255,255,255,0.8);
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
 }
 
 .letrilizar-status {
-    display: none;
-    opacity: 0;
+  display: none;
+  opacity: 0;
 }
 
 .letrilizar--active .letrilizar-preview {
-    width: 480px;
-    height: 310px;
-    margin-bottom: 10px;
+  width: 480px;
+  height: 310px;
+  margin-bottom: 10px;
 }
 
 .letrilizar--active .letrilizar-download-button,
 .letrilizar--active .letrilizar-change-button {
-    color: #ccc;
-    display: inline-block;
-    margin-right: 15px;
+  color: #ccc;
+  display: inline-block;
+  margin-right: 15px;
 }
 
 .letrilizar--active .letrilizar-share-button {
-    float: right;
+  float: right;
 }
 
 .letrilizar--active .letrilizar-close-button {
-    cursor: pointer;
-    display: block;
-    position: absolute;
-    right: -6px;
-    top: -6px;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    border: 2px solid #333;
-    background-color: #fff;
-    background-repeat: no-repeat;
-    background-position: 50%;
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  right: -6px;
+  top: -6px;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #333;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: 50%;
 }
 
 .letrilizar--active canvas {
-    display: block;
-    opacity: 1;
+  display: block;
+  opacity: 1;
 }
 
 .letrilizar--sharing .letrilizar-buttons {
-    display: none;
+  display: none;
 }
 
 .letrilizar--sharing .letrilizar-status {
-    display: block;
-    opacity: 1;
+  display: block;
+  opacity: 1;
 }
