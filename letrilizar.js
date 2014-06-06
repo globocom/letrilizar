@@ -17,7 +17,6 @@ var Letrilizar = {
     initialize: function() {
         var that = this;
         ActionBaloon.initialize(this.el);
-        LetrilizarSelectionWrapper.initialize(this.el);
         LetrilizarFacebookShare.initialize();
         
         this.el.on('mouseup', function(e) {
@@ -25,7 +24,7 @@ var Letrilizar = {
                 ActionBaloon.hide();
             }
             
-            var selection = LetrilizarSelectionWrapper.getSelection();
+            var selection = LetrilizarUtils.getSelection();
             if (selection.text) {
                 that.onSelect(e, selection);
             } 
