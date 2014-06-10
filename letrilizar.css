@@ -43,6 +43,10 @@
   -webkit-transform: rotate(45deg);
 }
 
+.letrilizar-action-ballon.letrilizar--active.letrilizar--leaning::after {
+  display: none;
+}
+
 .letrilizar-download-button,
 .letrilizar-change-button {
   display: none;
@@ -78,6 +82,16 @@
 .letrilizar-status {
   display: none;
   opacity: 0;
+}
+
+.letrilizar--active {
+  margin-top: -350px;
+  transition: margin 0.5s;
+  -webkit-transition: margin 0.5s;
+}
+
+.letrilizar--active.letrilizar--leaning {
+  margin: 0;
 }
 
 .letrilizar--active .letrilizar-preview {

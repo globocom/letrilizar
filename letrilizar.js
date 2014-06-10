@@ -41,12 +41,15 @@ var Letrilizar = {
         offset.top = selection.top - parentOffset.top + 45;
         offset.left = selection.left - parentOffset.left + (selection.width /2);
         
+        var isLeaning = offset.top <= ActionBaloon.el.height();
+        
         // selection position is relative to screen, so
         // is needed to add scroll displacement
         offset.top += scrollTop;
         offset.left += scrollLeft;
         
         ActionBaloon.text = selection.text;
+        ActionBaloon.el.toggleClass('letrilizar--leaning', isLeaning);
         ActionBaloon.floatAt(offset)
     }
 };
