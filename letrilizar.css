@@ -1,3 +1,23 @@
+@-webkit-keyframes keyframes-letrilizar-bounce-in {
+  0, 100% {
+    margin-top: 0;
+  }
+
+  50% {
+    margin-top: -10px;
+  }
+}
+
+@keyframes keyframes-letrilizar-bounce-in {
+  0, 100% {
+    margin-top: 0;
+  }
+
+  50% {
+    margin-top: -10px;
+  }
+}
+
 .letrilizar,
 .letrilizar-text-wrapper--closest,
 .letrilizar-preview,
@@ -26,6 +46,11 @@
   font-size: 11px;
   font-family: 'ProximaNova', 'Montserrat', sans-serif;
   z-index: 5000;
+}
+
+.letrilizar-action-ballon--showing {
+  -webkit-animation: keyframes-letrilizar-bounce-in 0.5s ease;
+  animation: keyframes-letrilizar-bounce-in 0.5s ease;
 }
 
 .letrilizar-action-ballon::after {

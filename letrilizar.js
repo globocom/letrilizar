@@ -86,7 +86,9 @@ var ActionBaloon = {
         });
     },
     floatAt: function(offset) {
-        this.el.css(offset).css('display','block').addClass('animated bounceInUp');
+        var that = this;
+        this.el.css(offset).css('display','block').addClass('letrilizar-action-ballon--showing');
+        setTimeout(function() { that.el.removeClass('letrilizar-action-ballon--showing'); }, 500);
         return this;
     },
     togglePreview: function(toggle) {
