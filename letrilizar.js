@@ -39,7 +39,7 @@ var Letrilizar = {
         var scrollLeft = $(window).scrollLeft();
         
         offset.top = selection.top - parentOffset.top + 45;
-        offset.left = selection.left - parentOffset.left + (selection.width /2);
+        offset.left = selection.left - parentOffset.left;
         
         var isLeaning = offset.top <= ActionBaloon.el.height();
         
@@ -74,16 +74,19 @@ var ActionBaloon = {
         });
         
         this.el.find('.letrilizar-share-button').on('click', function() {
-            if (that.previewIsOpen()) {
-                that.share();
-            } else {
-                that.togglePreview();
-            }
+            that.onShareButtonClick();
         });
         
         this.el.find('.letrilizar-close-button').on('click', function() {
             that.togglePreview(false);
         });
+    },
+    onShareButtonClick: function() {
+        if (this.previewIsOpen()) {
+            this.share();
+        } else {
+            this.togglePreview();
+        }
     },
     floatAt: function(offset) {
         var that = this;
