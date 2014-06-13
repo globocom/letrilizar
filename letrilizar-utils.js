@@ -13,11 +13,23 @@ var LetrilizarUtils = {
         return randomItem;
     },
     getSelection: function() { 
-        var range = document.getSelection().getRangeAt(0);
+        var selection = document.getSelection();
+        var range = selection.getRangeAt(0);
         var rect = range.getBoundingClientRect();
         var text = range.toString();
         
-        return $.extend({}, rect , {text: text});
+        return $.extend({}, rect , {
+            text: text,
+            formatedText: this.formatText(selection)
+        });
+    },
+    formatText: function(selection) {
+        var text = $.trim(selection.toString());
+        text = text.replace(/(\n)+/g, ', ');
+        text = text + '.';
+        text = text.replace(/\/\s\./g, '.');
+        
+        return text;
     },
     getTextHeight: function(ct) {
         var width = 450;
@@ -37,7 +49,7 @@ var LetrilizarUtils = {
                 }
             }
         }
-    
+        
         // Find the first line with a non-white pixel
         while(r) {
             r--;
@@ -50,18 +62,18 @@ var LetrilizarUtils = {
             var height = 0;
             // If we've got it then return the height
             if(first != r){
-              height =  last - first;  
+                height =  last - first;  
             }
         }
         return height;
-     
+        
     },
     autoFontSize: function(CT, canvasTextHeight, style) {
         var definedClass = style;
         
         CT.defineClass("smaller",$.extend({}, CT.getClass(style), 
-                       {fontSize: "16px"}));
-                       
+                                          {fontSize: "16px"}));
+        
         if(canvasTextHeight > 210) {
             definedClass = 'smaller';
             CT.config({

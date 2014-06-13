@@ -22,12 +22,15 @@ var Letrilizar = {
         this.el.on('mouseup', function(e) {
             if (ActionBaloon.previewIsOpen()) {
                 ActionBaloon.hide();
+                return;
             }
             
             var selection = LetrilizarUtils.getSelection();
             if (selection.text) {
                 that.onSelect(e, selection);
-            } 
+            } else {
+                ActionBaloon.hide();
+            }
         });
         
         return this;
@@ -38,18 +41,15 @@ var Letrilizar = {
         var scrollTop = $(window).scrollTop();
         var scrollLeft = $(window).scrollLeft();
         
-        offset.top = selection.top - parentOffset.top + 45;
+        offset.top = selection.top - parentOffset.top + 55;
         offset.left = selection.left - parentOffset.left;
-        
-        var isLeaning = offset.top <= ActionBaloon.el.height();
         
         // selection position is relative to screen, so
         // is needed to add scroll displacement
         offset.top += scrollTop;
         offset.left += scrollLeft;
         
-        ActionBaloon.text = selection.text;
-        ActionBaloon.el.toggleClass('letrilizar--leaning', isLeaning);
+        ActionBaloon.text = selection.formatedText;
         ActionBaloon.floatAt(offset)
     }
 };

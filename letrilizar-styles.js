@@ -10,11 +10,11 @@ var LetrilizarStyles = LetrilizarStyles || [];
         CT.config({
             canvas: canvas,
             context: context,
-            lineHeight: "40"
+            lineHeight: "35"
         });
 
         var text = {
-            fontFamily: "Montserrat",
+            fontFamily: "ProximaNova",
             fontSize: "26px",
             fontWeight: "bold",
             fontColor: "#e1180e"
@@ -22,12 +22,26 @@ var LetrilizarStyles = LetrilizarStyles || [];
         
         CT.defineClass("text1", text);
         CT.defineClass("text1-light", $.extend({}, text, 
-                       {fontColor: "#fff"}));
+                        {fontColor: "#fff",
+                    }));
+        CT.defineClass("text1-light-italic", $.extend({}, text,
+                        {fontColor: "#fff",
+                        fontWeight: "normal",
+                        fontStyle: "italic",
+                    }));
+        
+        
+        CT.defineClass("text2", $.extend({}, text, 
+                       {fontColor: "#fff",
+                        fontFamily: "Georgia",
+                        fontWeight: "normal",
+                        fontStyle: "Italic",
+                    }));
 
         CT.defineClass("classic-text", {
-            fontFamily: "Georgia",
+            fontFamily: "ProximaNova",
             fontSize: "28px",
-            fontWeight: "normal",
+            fontWeight: "bold",
             fontColor: "#333"
         });
         
@@ -44,7 +58,7 @@ var LetrilizarStyles = LetrilizarStyles || [];
                        {fontColor: "#fff"}));
         
         var subtitle2 = {
-            fontFamily: "Georgia",
+            fontFamily: "ProximaNova",
             fontSize: "13px",
             fontWeight: "bold",
             fontColor: "#666"   
@@ -95,26 +109,27 @@ var LetrilizarStyles = LetrilizarStyles || [];
             
             CT.drawText({
                 text: '<class="' + definedClass + '">' + text + '</class>',
-                x: 10,
+                x: 20,
                 y: 100,
-                boxWidth: 480 - 10
+                boxWidth: 480 - 50
             });
             
             CT.drawText({
                 text: '<class="subtitle1">' + subtitle1 + '</class>',
-                x: 480 - (0.75 * 13 * (subtitle1.length - 1)),
+                x: 20,
                 y: 270,
-                boxWidth: 480
+                boxWidth: 330
             });
 
             CT.drawText({
                 text: '<class="subtitle2">' + subtitle2 + '</class>',
-                x: 195,
-                y: 290,
-                boxWidth: 480
+                x: 20,
+                y: 285,
+                boxWidth: 330
             });
             
-            putImage(context, 'quote-1.png', 200, 0);
+            putImage(context, 'quote-1.png', 200, -10);
+            putImage(context, 'musica-logo-cinza.png', 381, 255);
         }
     });
     
@@ -126,7 +141,7 @@ var LetrilizarStyles = LetrilizarStyles || [];
             var CT = getCT(canvas, context); 
             
             CT.context.clearRect(0, 0, canvas.width, canvas.height);
-            var definedClass = LetrilizarUtils.fitText(CT, canvas, text, 10, 100, 470, 'text1-light');
+            var definedClass = LetrilizarUtils.fitText(CT, canvas, text, 10, 100, 470, 'text2');
             CT.context.clearRect(0, 0, canvas.width, canvas.height);
             
             setBackgroundColor(canvas, context, '#4e85ae');
@@ -134,29 +149,111 @@ var LetrilizarStyles = LetrilizarStyles || [];
             
             CT.drawText({
                 text: '<class="' + definedClass + '">' + text + '</class>',
-                x: 10,
+                x: 20,
                 y: 100,
-                boxWidth: 480 - 10
+                boxWidth: 480 - 50
             });
             
             CT.drawText({
                 text: '<class="subtitle1-light">' + subtitle1 + '</class>',
-                x: 480 - (0.75 * 13 * (subtitle1.length - 1)),
-                        y: 270,
-                        boxWidth: 480
+                x: 20,
+                y: 270,
+                boxWidth: 330
             });
             
             CT.drawText({
                 text: '<class="subtitle2-light">' + subtitle2 + '</class>',
-                x: 195,
-                y: 290,
-                boxWidth: 480
+                x: 20,
+                y: 285,
+                boxWidth: 330
             });
             
             putImage(context, 'quote-white.png', 225, 22);
+            putImage(context, 'musica-logo-cinza.png', 381, 255);            
         }
     });
-   
+
+    LetrilizarStyles.push({
+        name: 'quote-yellow',
+        draw: function(canvas, text, subtitle1, subtitle2) {
+            var context = canvas.getContext("2d");
+            var CT = getCT(canvas, context); 
+            
+            CT.context.clearRect(0, 0, canvas.width, canvas.height);
+            var definedClass = LetrilizarUtils.fitText(CT, canvas, text, 10, 100, 470, 'text1-light');
+            CT.context.clearRect(0, 0, canvas.width, canvas.height);
+            
+            setBackgroundColor(canvas, context, '#f2be46');
+            
+            
+            CT.drawText({
+                text: '<class="' + definedClass + '">' + text + '</class>',
+                x: 20,
+                y: 100,
+                boxWidth: 480 - 50
+            });
+            
+            CT.drawText({
+                text: '<class="subtitle1-light">' + subtitle1 + '</class>',
+                x: 20,
+                y: 270,
+                boxWidth: 330
+            });
+            
+            CT.drawText({
+                text: '<class="subtitle2-light">' + subtitle2 + '</class>',
+                x: 20,
+                y: 285,
+                boxWidth: 330
+            });
+            
+            putImage(context, 'quote-3.png', 190, 30);
+            putImage(context, 'musica-logo-cinza.png', 381, 255);            
+        }
+    });
+    
+    
+    LetrilizarStyles.push({
+        name: 'quote-red',
+        draw: function(canvas, text, subtitle1, subtitle2) {
+            var context = canvas.getContext("2d");
+            var CT = getCT(canvas, context); 
+            
+            CT.context.clearRect(0, 0, canvas.width, canvas.height);
+            var definedClass = LetrilizarUtils.fitText(CT, canvas, text, 10, 100, 470, 'text1-light-italic');
+            CT.context.clearRect(0, 0, canvas.width, canvas.height);
+            
+            setBackgroundColor(canvas, context, '#e53640');
+            
+            
+            CT.drawText({
+                text: '<class="' + definedClass + '">' + text + '</class>',
+                x: 20,
+                y: 75,
+                boxWidth: 480 - 50
+            });
+            
+            CT.drawText({
+                text: '<class="subtitle1-light">' + subtitle1 + '</class>',
+                x: 20,
+                y: 270,
+                boxWidth: 330
+            });
+            
+            CT.drawText({
+                text: '<class="subtitle2-light">' + subtitle2 + '</class>',
+                x: 20,
+                y: 285,
+                boxWidth: 330
+            });
+            
+            putImage(context, 'quote-3.png', 190, -15);
+            putImage(context, 'musica-logo-cinza.png', 381, 255);            
+        }
+    });
+    
+    
+    
     LetrilizarStyles.push({
         name: 'classic',
         draw: function(canvas, text, subtitle1, subtitle2) {
