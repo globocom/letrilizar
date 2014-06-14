@@ -78,7 +78,7 @@ var ActionBaloon = {
         });
         
         this.el.find('.letrilizar-close-button').on('click', function() {
-            that.togglePreview(false);
+            that.hide();
         });
     },
     onShareButtonClick: function() {
