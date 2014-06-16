@@ -6,7 +6,9 @@ var Letrilizar = {
         errorText: 'Ops... ocorreu um erro',
         subtitle1: 'Letrilizar',
         subtitle2: 'GLOBOCOM.GITHUB.IO/LETRILIZAR/',
-        imageSrcPrefix: 'images/'
+        imageSrcPrefix: 'images/',
+        formatText: true,
+        maxChars: 400
     },
     letrilizar: function(options) {
         this.options = $.extend({}, this.defaultOptions, options);
@@ -25,7 +27,7 @@ var Letrilizar = {
                 return;
             }
             
-            var selection = LetrilizarUtils.getSelection();
+            var selection = LetrilizarUtils.getSelection(that.options);
             if (selection.text) {
                 that.onSelect(e, selection);
             } else {
@@ -63,6 +65,12 @@ var ActionBaloon = {
         var that = this;
         parentEl.parent().append(ActionBaloon.el.html());
         this.el = $('.letrilizar-action-ballon');
+        
+        this.el.find('.letrilizar-buttons').on('click', function() { 
+            if (!that.previewIsOpen()) {
+                that.onShareButtonClick();
+            };
+        });
         
         this.el.find('.letrilizar-download-button').on('click', function() {
             that.download();

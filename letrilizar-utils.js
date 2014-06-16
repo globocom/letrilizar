@@ -12,7 +12,7 @@ var LetrilizarUtils = {
         while (randomItem == previous) { randomItem = rollDice(); };
         return randomItem;
     },
-    getSelection: function() { 
+    getSelection: function(options) { 
         var selection = document.getSelection();
         var range = selection.getRangeAt(0);
         var rect = range.getBoundingClientRect();
@@ -20,16 +20,32 @@ var LetrilizarUtils = {
         
         return $.extend({}, rect , {
             text: text,
-            formatedText: this.formatText(selection)
+            formatedText: this.formatText(selection, options)
         });
     },
-    formatText: function(selection) {
+    formatText: function(selection, options) {
         var text = $.trim(selection.toString());
-        text = text.replace(/(\n)+/g, ', ');
-        text = text + '.';
-        text = text.replace(/\/\s\./g, '.');
+        if (!options.formatText) {
+            return text;
+        }
         
-        return text;
+        var lines = text.split('\n');
+        var formatedText = '';
+        
+        for(i = 0; i < lines.length; i++) {
+            var line = lines[i].trim();
+            
+            if (line == '') { continue; }
+            if (formatedText != '') { formatedText += '; '; }
+            
+            formatedText += line[0].toUpperCase() + line.substring(1, line.length);
+        }
+        
+        if (formatedText.length > options.maxChars) {
+            formatedText = formatedText.slice(0, options.maxChars - 10) + ' (...)';
+        };
+        
+        return formatedText;
     },
     getTextHeight: function(ct) {
         var width = 450;
