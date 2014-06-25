@@ -66,13 +66,14 @@ var LetrilizarFacebookShare = {
         this.getAccessToken(function(accessToken){ that.facebookPost(accessToken); });
     },
     facebookPost: function(accessToken) {
+        var that = this;
         var xhr = new XMLHttpRequest();
         var image = this.getCanvasImage();
         
         var boundary = '----ThisIsTheBoundary1234567890';
         xhr.open('POST', 'https://graph.facebook.com/me/photos?access_token=' + accessToken, true);
-        xhr.onload = this.finished;
-        xhr.onerror = this.error;
+        xhr.onload = function() { that.finished(that); }
+        xhr.onerror = function() { that.error(that); }
         xhr.setRequestHeader("Content-Type", "multipart/form-data; boundary=" + boundary);
         xhr.sendAsBinary(this.fakeFileUploadForm(boundary,
                                                     image,
@@ -111,7 +112,9 @@ var LetrilizarFacebookShare = {
         var formData = '--' + boundary + '\r\n';
         formData += 'Content-Disposition: form-data; name="source"; filename="' + filename + '"\r\n';
         formData += 'Content-Type: ' + mimeType + '\r\n\r\n';
-        for ( var i = 0; i < imageData.length; ++i ) {
+        for ( var i = 0
+            
+            ; i < imageData.length; ++i ) {
             formData += String.fromCharCode( imageData[ i ] & 0xff );
         }
         formData += '\r\n';
@@ -123,11 +126,11 @@ var LetrilizarFacebookShare = {
         return formData;
     },
     
-    finished: function() {
-        console.log('sucesso');
+    finished: function(that) {
+        that.options.successCallback();
     },
-    error: function() {
-        console.log('erro');
+    error: function(that) {
+        that.options.errorCallback();
     },
     patchXmlRequest: function() {
         if (XMLHttpRequest.prototype.sendAsBinary === undefined) {

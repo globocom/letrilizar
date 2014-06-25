@@ -3,7 +3,7 @@ var Letrilizar = {
         el: $('.letrilizar'),
         sharingText: 'Estamos postando a foto no seu facebook...',
         successText: 'Sua foto foi postada. É só curtir!',
-        errorText: 'Ops... ocorreu um erro',
+        errorText: 'Ops... ocorreu um erro ao postar a foto',
         subtitle1: 'Letrilizar',
         subtitle2: 'GLOBOCOM.GITHUB.IO/LETRILIZAR/',
         imageSrcPrefix: 'images/',

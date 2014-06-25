@@ -34,9 +34,19 @@ var LetrilizarUtils = {
         
         for(i = 0; i < lines.length; i++) {
             var line = lines[i].trim();
-            
             if (line == '') { continue; }
-            if (formatedText != '') { formatedText += '; '; }
+            
+            var lastChar;
+            
+            if (formatedText != '') { 
+                lastChar = formatedText.slice(-1); 
+            }
+            
+            if (lastChar && !lastChar.match(/\!|\?|\.|\,/)) { 
+                formatedText += '; ';
+            } else {
+                formatedText += ' ';
+            }
             
             formatedText += line[0].toUpperCase() + line.substring(1, line.length);
         }
