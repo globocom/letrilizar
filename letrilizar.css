@@ -82,6 +82,11 @@
   animation: keyframes-letrilizar-bounce-in-up 0.5s ease-in;
 }
 
+.letrilizar-action-ballon--showing--all {
+  -webkit-animation: keyframes-letrilizar-bounce-in-up 0.5s ease-in;
+  animation: keyframes-letrilizar-bounce-in-up 0.5s ease-in;
+}
+
 .letrilizar-action-ballon::after {
   content: '';
   display: inline-block;
@@ -135,6 +140,11 @@
 }
 
 .letrilizar--active {
+  -webkit-transition: all 0.5s;
+  padding: 10px 13px;
+}
+
+.letrilizar--active--balloon {
   margin-top: -330px;
   margin-left: -40px;
   transition: margin 0.5s;

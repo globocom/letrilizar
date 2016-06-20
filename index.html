@@ -12,14 +12,23 @@
 
 <section class="letrilizar">
 
-<div class="row">
-    <div class="col-lg-12">
-        <div class="jumbotron">
-          <h1>Letrilizar</h1>
-          <p>Transforme qualquer trecho da sua página em uma citação e compartilhe</p>
-          <p class="text-primary">Selecione os trechos abaixo e veja em ação!</p>
-        </div>
+<div class="jumbotron">
+	<div class="row">
+	    <div class="col-md-6">
+	          <h1>Letrilizar</h1>
+	          <p>Transforme qualquer trecho da sua página em uma citação para salvar ou compartilhar</p>
+	          <p class="text-primary">Personalize com diferentes estilos e customizações!</p>
+	        
+	    </div>
+	    <div class="col-md-6">
+	        <img src="intro.gif" style="border: 1px solid gray;" />
+	    </div>
     </div>
+</div>
+<div class="row">
+	<div class="col-lg-12">
+		<h3>Selecione os trechos abaixo e compartilhe!</h3>
+	</div>
 </div>
 <div class="row">
   <div class="col-lg-4">
@@ -28,7 +37,7 @@
         <p>We need to steer clear of this poverty of ambition, where people want to drive fancy cars and wear nice clothes and live in nice apartments but don't want to work hard to accomplish these things. Everyone should try to realize their full potential.</p>
         <small>Phrase from <cite title="Source Title">Barack Obana</cite></small>
       </blockquote>
-    <div class="btn btn-primary btn-xs" id="source-button" style="display: none;">&lt; &gt;</div></div>
+	</div>
   </div>
   <div class="col-lg-4">
     <div class="bs-component">
@@ -53,7 +62,29 @@ Living for today</p>
   </div>
   
 </section>
-
+<div class="row">
+	<div class="col-lg-12">
+		<h3>Como usar:</h3>
+	</div>
+</div>
+<div class="row">
+  <div class="col-lg-4">
+    <div class="bs-component">
+    	<form method="GET">
+    		<textarea id="generated-text"></textarea>
+    		<button class="btn btn-primary generate-canvas-button">Gerar</button>
+    	</form>
+	</div>
+  </div>
+  <div class="col-lg-4" style="border: 1px solid red;">
+	<div class="letrilizar-canvas-content-image"></div>
+  </div>
+  <div class="col-lg-4">
+    <div class="bs-component">
+    	
+    </div>
+  </div>
+</div>
 <div class='letrilizar-markupholder'>
     <script type='text/template' id='letrilizar-template-action-ballon'>
         <div class='letrilizar-action-ballon'>
@@ -69,7 +100,6 @@ Living for today</p>
             <div class='letrilizar-status'></div>
         </div>
     </script>
-</div>
 </div>
 </div>
 </body>
@@ -97,7 +127,13 @@ Living for today</p>
 <script type='text/javascript' src='letrilizar.js'></script>
 <script type='text/javascript'>
      $(function(){
-       Letrilizar.letrilizar(); 
+ 		
+		//console.info($('#gerenarted-text').val());
+		Letrilizar.letrilizar({
+			triggerOn: '.generate-canvas-button'
+		});			 			
+     	
+		//Letrilizar.letrilizar(); 
     });
 </script>
 </html>
