@@ -49,7 +49,8 @@ var Letrilizar = {
 		}
 		
 		$('#change-style-button').append(stylesContent).find('button').on('click', function(e){
-			ActionBaloon.chooseStyle($(e).attr('data-index'));
+			ActionBaloon.hide();
+			ActionBaloon.chooseStyle($(e.target).attr('data-index'));
 			that.newCanvasOnElement();
 			ActionBaloon.show();
 			return false;
@@ -178,7 +179,6 @@ var ActionBaloon = {
         	this.el.css('display','block').addClass('letrilizar-action-ballon--showing');
         } else {
         	this.el.css('display','block').addClass('letrilizar-action-ballon--showing--all');
-        	//this.el.css('display','block').addClass('letrilizar-show');
         }
         this.style.draw(canvas[0], canvasText, subtitle1, subtitle2);
         this.canvas = canvas;
