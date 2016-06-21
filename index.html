@@ -71,17 +71,27 @@ Living for today</p>
   <div class="col-lg-4">
     <div class="bs-component">
     	<form method="GET">
-    		<textarea id="generated-text"></textarea>
-    		<button class="btn btn-primary generate-canvas-button">Gerar</button>
+    		<div class="form-group">
+    			<label for="generated-text" class="control-label">Digite seu texto:</label>
+    			<textarea id="generated-text" class="form-control" rows="5" style="margin-bottom: 20px;"></textarea>
+    			<button class="btn btn-primary btn-lg generate-canvas-button pull-right">Gerar</button>
+		  	</div>
     	</form>
 	</div>
   </div>
-  <div class="col-lg-4" style="border: 1px solid red;">
-	<div class="letrilizar-canvas-content-image"></div>
+  <div class="col-lg-5">
+	<div class="letrilizar-canvas-content-image" style="border: 1px solid #ddd; width: 480px; height: 310px">
+	</div>
   </div>
-  <div class="col-lg-4">
+  <div class="col-lg-3">
     <div class="bs-component">
-    	
+    	<form method="GET">
+    		<div class="form-group">
+			  <label for="generated-text" class="control-label">visuais:</label>
+			  <div id="change-style-button" class="btn-group" role="group" aria-label="...">
+			  </div>
+		  	</div>
+    	</form>
     </div>
   </div>
 </div>
@@ -131,8 +141,10 @@ Living for today</p>
 		//console.info($('#gerenarted-text').val());
 		Letrilizar.letrilizar({
 			triggerOn: '.generate-canvas-button'
-		});			 			
-     	
+		});	
+		
+		Letrilizar.styleChooser();
+		
 		//Letrilizar.letrilizar(); 
     });
 </script>

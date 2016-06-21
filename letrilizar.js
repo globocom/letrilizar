@@ -38,6 +38,23 @@ var Letrilizar = {
     	ActionBaloon.draw(txtGenerated);
     	ActionBaloon.togglePreview();
     },
+    styleChooser: function() {
+    	var that = this;
+    	var styles = LetrilizarStyles;
+		
+		var stylesContent = '';
+		
+		for(s in LetrilizarStyles) {
+			stylesContent += '<button type="button" class="btn btn-default" data-index="' + s +  '">' + LetrilizarStyles[s].name +  '</button>';
+		}
+		
+		$('#change-style-button').append(stylesContent).find('button').on('click', function(e){
+			ActionBaloon.chooseStyle($(e).attr('data-index'));
+			that.newCanvasOnElement();
+			ActionBaloon.show();
+			return false;
+		});
+    },
     handleSelection: function() {
     	var that = this;
     	ActionBaloon.initialize(this.el);
@@ -86,7 +103,8 @@ var ActionBaloon = {
     initialize: function(parentEl) {
         var that = this;
         
-        parentEl.parent().append(ActionBaloon.el.html());
+        parentEl.parent().empty().append(ActionBaloon.el.html());
+        
         this.el = $('.letrilizar-action-ballon');
         
         this.el.find('.letrilizar-buttons').on('click', function() { 
@@ -142,6 +160,10 @@ var ActionBaloon = {
         this.style = LetrilizarUtils.randomItemFrom(LetrilizarStyles, this.style);
         return this;
     },
+    chooseStyle: function(index) {
+        this.style = LetrilizarStyles[index];
+        return this;
+    },
     changeStatus: function(text) {
         this.el.addClass('letrilizar--sharing');
         this.el.find('.letrilizar-status').html(text);
@@ -158,7 +180,6 @@ var ActionBaloon = {
         	this.el.css('display','block').addClass('letrilizar-action-ballon--showing--all');
         	//this.el.css('display','block').addClass('letrilizar-show');
         }
-        
         this.style.draw(canvas[0], canvasText, subtitle1, subtitle2);
         this.canvas = canvas;
     },
@@ -183,5 +204,9 @@ var ActionBaloon = {
     hide: function() {
         this.togglePreview(false);
         this.el.fadeOut();
+    },
+    show: function() {
+    	this.togglePreview(true);
+        this.el.fadeIn();
     }
 }

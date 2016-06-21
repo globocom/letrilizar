@@ -140,9 +140,13 @@
 }
 
 .letrilizar--active {
-  -webkit-transition: all 0.5s;
-  padding: 10px 13px;
+  
 }
+
+.letrilizar--active.letrilizar-action-ballon::after {
+    display: none;
+}
+
 
 .letrilizar--active--balloon {
   margin-top: -330px;
