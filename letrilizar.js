@@ -32,11 +32,10 @@ var Letrilizar = {
     newCanvasOnElement: function(){
     	var txtGenerated = $('#generated-text').val();
     	var element = $('.letrilizar-canvas-content-image');
-    	
     	ActionBaloon.initialize(element);
     	ActionBaloon.text = txtGenerated;
     	ActionBaloon.draw(txtGenerated);
-    	ActionBaloon.togglePreview();
+    	ActionBaloon.togglePreview(true);
     },
     styleChooser: function() {
     	var that = this;
@@ -49,10 +48,8 @@ var Letrilizar = {
 		}
 		
 		$('#change-style-button').append(stylesContent).find('button').on('click', function(e){
-			ActionBaloon.hide();
 			ActionBaloon.chooseStyle($(e.target).attr('data-index'));
-			that.newCanvasOnElement();
-			ActionBaloon.show();
+			ActionBaloon.togglePreview(true);
 			return false;
 		});
     },
@@ -174,7 +171,6 @@ var ActionBaloon = {
         var subtitle1 = Letrilizar.options['subtitle1'];
         var subtitle2 = Letrilizar.options['subtitle2'];
         canvasText = text || this.text;
-        
         if(Letrilizar.options['triggerOn'] == 'selection') {
         	this.el.css('display','block').addClass('letrilizar-action-ballon--showing');
         } else {
