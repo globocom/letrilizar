@@ -1,151 +1,152 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-<link rel="stylesheet" href="bootstrap.min.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="letrilizar.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="letrilizar-icons.css" type="text/css" media="screen" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" href="bootstrap.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="letrilizar.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="letrilizar-icons.css" type="text/css" media="screen" />
 </head>
+
 <body>
-<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-<div class="container">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <div class="container">
 
-<section class="letrilizar">
+        <section class="letrilizar">
 
-<div class="jumbotron">
-	<div class="row">
-	    <div class="col-md-6">
-	          <h1>Letrilizar</h1>
-	          <p>Transforme qualquer trecho da sua página em uma citação para salvar ou compartilhar</p>
-	          <p class="text-primary">Personalize com diferentes estilos e customizações!</p>
-	        
-	    </div>
-	    <div class="col-md-6">
-	        <img src="intro.gif" style="border: 1px solid gray;" />
-	    </div>
-    </div>
-</div>
-<div class="row">
-	<div class="col-lg-12">
-		<h3>Selecione os trechos abaixo e compartilhe!</h3>
-	</div>
-</div>
-<div class="row">
-  <div class="col-lg-4">
-    <div class="bs-component">
-      <blockquote id="letrilizar-phrase">
-        <p>We need to steer clear of this poverty of ambition, where people want to drive fancy cars and wear nice clothes and live in nice apartments but don't want to work hard to accomplish these things. Everyone should try to realize their full potential.</p>
-        <small>Phrase from <cite title="Source Title">Barack Obana</cite></small>
-      </blockquote>
-	</div>
-  </div>
-  <div class="col-lg-4">
-    <div class="bs-component">
-      <blockquote class="pull-right" id="letrilizar-music">
-        <p>Imagine there's no heaven<br />
-It's easy if you try<br />
-No hell below us<br />
-Above us only sky<br />
-Imagine all the people <br />
-Living for today</p>
-        <small>Music from <cite title="Source Title">John Lennon</cite></small>
-      </blockquote>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="bs-component">
-      <blockquote class="pull-right" id="letrilizar-book">
-        <p>Eu poderia viver recluso numa casca de noz e me considerar rei do espaço infinito...</p>
-        <small>Trecho de <cite title="Source Title">Shakespare</cite></small>
-      </blockquote>
-    </div>
-  </div>
-  
-</section>
-<div class="row">
-	<div class="col-lg-12">
-		<h3>Como usar:</h3>
-	</div>
-</div>
-<div class="row">
-  <div class="col-lg-4">
-    <div class="bs-component">
-    	<form method="GET">
-    		<div class="form-group">
-    			<label for="generated-text" class="control-label">Digite seu texto:</label>
-    			<textarea id="generated-text" class="form-control" rows="5" style="margin-bottom: 20px;"></textarea>
-    			<button class="btn btn-primary btn-lg generate-canvas-button pull-right">Gerar</button>
-		  	</div>
-    	</form>
-	</div>
-  </div>
-  <div class="col-lg-5">
-	<div class="letrilizar-canvas-content-image" style="border: 1px solid #ddd; width: 480px; height: 310px">
-	</div>
-  </div>
-  <div class="col-lg-3">
-    <div class="bs-component">
-    	<form method="GET">
-    		<div class="form-group">
-			  <label for="generated-text" class="control-label">visuais:</label>
-			  <div id="change-style-button" class="btn-group" role="group" aria-label="...">
-			  </div>
-		  	</div>
-    	</form>
-    </div>
-  </div>
-</div>
-<div class='letrilizar-markupholder'>
-    <script type='text/template' id='letrilizar-template-action-ballon'>
-        <div class='letrilizar-action-ballon'>
-            <span class='letrilizar-close-button'></span>
-            <div class='letrilizar-preview'>
-                <canvas width='480' height='310'></canvas>
+            <div class="jumbotron">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1>Letrilizar</h1>
+                        <p>Transforme qualquer trecho da sua página em uma citação para salvar ou compartilhar</p>
+                        <p class="text-primary">Personalize com diferentes estilos e customizações!</p>
+
+                    </div>
+                    <div class="col-md-6">
+                        <img src="intro.gif" style="border: 1px solid gray;" />
+                    </div>
+                </div>
             </div>
-            <div class='letrilizar-buttons'>
-                <span class='letrilizar-download-button'>download</span>
-                <span class='letrilizar-change-button'>trocar visual</span>
-                <span class='letrilizar-share-button'>Compartilhar</span>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>Selecione os trechos abaixo e compartilhe!</h3>
+                </div>
             </div>
-            <div class='letrilizar-status'></div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="bs-component">
+                        <blockquote id="letrilizar-phrase">
+                            <p>We need to steer clear of this poverty of ambition, where people want to drive fancy cars and wear nice clothes and live in nice apartments but don't want to work hard to accomplish these things. Everyone should try to realize
+                                their full potential.</p>
+                            <small>Phrase from <cite title="Source Title">Barack Obana</cite></small>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="bs-component">
+                        <blockquote class="pull-right" id="letrilizar-music">
+                            <p>Imagine there's no heaven<br /> It's easy if you try<br /> No hell below us<br /> Above us only sky<br /> Imagine all the people <br /> Living for today</p>
+                            <small>Music from <cite title="Source Title">John Lennon</cite></small>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="bs-component">
+                        <blockquote class="pull-right" id="letrilizar-book">
+                            <p>Eu poderia viver recluso numa casca de noz e me considerar rei do espaço infinito...</p>
+                            <small>Trecho de <cite title="Source Title">Shakespare</cite></small>
+                        </blockquote>
+                    </div>
+                </div>
+
+        </section>
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>Como usar:</h3>
+            </div>
         </div>
-    </script>
-</div>
-</div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="bs-component">
+                    <form method="GET">
+                        <div class="form-group">
+                            <label for="generated-text" class="control-label">Digite seu texto:</label>
+                            <textarea id="generated-text" class="form-control" rows="5" style="margin-bottom: 20px;"></textarea>
+                            <button class="btn btn-primary btn-lg generate-canvas-button pull-right">Gerar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="letrilizar-canvas-content-image" style="border: 1px solid #ddd; width: 480px; height: 310px">
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="bs-component">
+                    <form method="GET">
+                        <div class="form-group">
+                            <label for="generated-text" class="control-label">visuais:</label>
+                            <div id="change-style-button" class="btn-group" role="group" aria-label="...">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class='letrilizar-markupholder'>
+            <script type='text/template' id='letrilizar-template-action-ballon'>
+                <div class='letrilizar-action-ballon'>
+                    <span class='letrilizar-close-button'></span>
+                    <div class='letrilizar-preview'>
+                        <canvas width='480' height='310'></canvas>
+                    </div>
+                    <div class='letrilizar-buttons'>
+                        <span class='letrilizar-download-button'>download</span>
+                        <span class='letrilizar-change-button'>trocar visual</span>
+                        <span class='letrilizar-share-button'>Compartilhar</span>
+                    </div>
+                    <div class='letrilizar-status'></div>
+                </div>
+            </script>
+        </div>
+        </div>
 </body>
 
 <script type='text/javascript'>
-
     // This is the App Id for this example application
     // Please REPLACE it by your App Id
     var demoAppId = '512206148841008';
-    var appId = document.location.search.replace('?appid=','').replace('/','');
+    var appId = document.location.search.replace('?appid=', '').replace('/', '');
     // To get an App Id for your domain, visit https://developers.facebook.com
 
     window.fbAsyncInit = function() {
-        FB.init({appId: appId || demoAppId, status: true, cookie: true, xfbml: true});
+        FB.init({
+            appId: appId || demoAppId,
+            status: true,
+            cookie: true,
+            xfbml: true
+        });
     };
-    
 </script>
-
 <script type='text/javascript' src='CanvasText-0.4.1.js'></script>
 <script type='text/javascript' src='jquery-1.11.1.js'></script>
 <script type="text/javascript" src="http://connect.facebook.net/pt_BR/all.js"></script>
-<script type='text/javascript' src='letrilizar-utils.js'></script>
+<script type='text/javascript' src='letrilizar.js'></script>
 <script type='text/javascript' src='letrilizar-share.js'></script>
 <script type='text/javascript' src='letrilizar-styles.js'></script>
-<script type='text/javascript' src='letrilizar.js'></script>
+<script type='text/javascript' src='letrilizar-utils.js'></script>
 <script type='text/javascript'>
-     $(function(){
- 		
-		//console.info($('#gerenarted-text').val());
-		Letrilizar.letrilizar({
-			triggerOn: '.generate-canvas-button'
-		});	
-		
-		Letrilizar.styleChooser();
-		
-		//Letrilizar.letrilizar(); 
+    $(function() {
+
+        //console.info($('#gerenarted-text').val());
+        Letrilizar.letrilizar({
+            triggerOn: '.generate-canvas-button'
+        });
+
+        Letrilizar.styleChooser();
+
+        //Letrilizar.letrilizar(); 
     });
 </script>
+
 </html>
