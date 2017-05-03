@@ -48,7 +48,7 @@ var Letrilizar = {
             stylesContent += `<button type="button" class="btn btn-default" data-index="${s}">${LetrilizarStyles[s].name}</button>`;
         }
 
-        $('#change-style-button').append(stylesContent).find('button').on('click', e => {
+        $('#change-style-button').append(stylesContent).find('button').on('click', function(e) {
             ActionBaloon.hide();
             ActionBaloon.chooseStyle($(e.target).attr('data-index'));
             that.newCanvasOnElement();
